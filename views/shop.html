@@ -1,113 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body{
-            background:#f4f6f8;
-        }
+<title>Express Shop</title>
 
-        nav{
-            background:#1e293b;
-            padding:18px 50px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
+<link rel="stylesheet" href="/css/main.css">
 
-        nav h2{
-            color:white;
-        }
-
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin-left:25px;
-            font-weight:bold;
-        }
-
-        .container{
-            width:90%;
-            max-width:900px;
-            margin:70px auto;
-            text-align:center;
-        }
-
-        h1{
-            color:#1e293b;
-            margin-bottom:20px;
-        }
-
-        p{
-            color:#555;
-            font-size:18px;
-            margin-bottom:40px;
-        }
-
-        .card{
-            background:white;
-            padding:35px;
-            border-radius:12px;
-            box-shadow:0 5px 15px rgba(0,0,0,.1);
-        }
-
-        .btn{
-            display:inline-block;
-            margin-top:20px;
-            background:#2563eb;
-            color:white;
-            padding:12px 25px;
-            border-radius:8px;
-            text-decoration:none;
-            transition:.3s;
-        }
-
-        .btn:hover{
-            background:#1d4ed8;
-        }
-
-    </style>
 </head>
 
 <body>
 
 <nav>
-    <h2>Express Shop</h2>
 
-    <div>
-        <a href="/">Home</a>
-        <a href="/add-product">Add Product</a>
-    </div>
+<h2>Express Shop</h2>
+
+<ul>
+
+<li><a href="/">Home</a></li>
+
+<li><a href="/add-product">Add Product</a></li>
+
+</ul>
+
 </nav>
 
-<div class="container">
+<section class="hero">
 
-    <div class="card">
+<h1>Welcome to Express Shop</h1>
 
-        <h1>Welcome to Express Shop</h1>
+<p>Learn Express by building your own online store.</p>
 
-        <p>
-            This is the home page of our Express application.
-            Browse products or add a new one using the navigation bar.
-        </p>
+<a href="/add-product" class="btn">Add New Product</a>
 
-        <a class="btn" href="/add-product">
-            Add New Product
-        </a>
+</section>
 
-    </div>
+<section class="products">
+
+<div class="card">
+
+<div class="image"></div>
+
+<div class="card-content">
+
+<h3>Gaming Laptop</h3>
+
+<p class="price">$1499</p>
+
+<a href="#" class="buy">Buy Now</a>
 
 </div>
+
+</div>
+
+<div class="card">
+
+<div class="image"></div>
+
+<div class="card-content">
+
+<h3>Mechanical Keyboard</h3>
+
+<p class="price">$149</p>
+
+<a href="#" class="buy">Buy Now</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="image"></div>
+
+<div class="card-content">
+
+<h3>Wireless Mouse</h3>
+
+<p class="price">$59</p>
+
+<a href="#" class="buy">Buy Now</a>
+
+</div>
+
+</div>
+
+</section>
 
 </body>
 </html>
