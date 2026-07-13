@@ -1,17 +1,33 @@
-const express=require('express');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const app= express();
+const app = express();
 
-app.use('/products', (req,res,next)=>{
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/', (req, res, next) => {
+    console.log("Always runs!!");
+    next();
+});
+
+app.get('/add-product', (req, res) => {
     console.log("Currently in products page");
-    res.send('<html><b><h1>PRODUCTS PAGE</h1></b></html>');
+    res.send(
+        '<form action="/product" method="POST">' +
+        '<input type="text" name="title">' +
+        '<button type="submit">Submit</button>' +
+        '</form>'
+    );
 });
 
-app.use('/', (req,res,next)=>{
+app.post('/product', (req, res) => {
+    console.log(req.body); // { title: '...' }
+    res.redirect('/');
+});
+
+app.get('/', (req, res) => {
     console.log("Currently in home page");
-    res.send('<html><b><h1>HOME PAGE</h1></b></html>');
+    res.send('<h1>HOME PAGE</h1>');
 });
-
-
 
 app.listen(3000);
