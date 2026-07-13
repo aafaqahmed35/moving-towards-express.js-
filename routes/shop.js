@@ -1,10 +1,12 @@
 const express=require('express');
+const path=require('path');
 const router=express.Router();
 
 
 router.get('/', (req, res) => {
-    console.log("Currently in home page");
-    res.send('<h1>HOME PAGE</h1>');
+
+    res.sendFile(path.join(__dirname, '..', 'views', 'shop.html'));
+
 });
 
 module.exports=router;

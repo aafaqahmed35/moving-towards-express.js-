@@ -1,4 +1,5 @@
 const express = require('express');
+const path=require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -12,8 +13,16 @@ app.use(adminRoutes);
 app.use(shopRoutes);
 
 app.use((req,res)=>{
-    res.status(404).send('<html><h1>RESOURCE NOT FOUND!!!</h1></html>');
+    
+
+    res.status(404).sendFile(
+
+        path.join(__dirname, 'views', '404.html')
+
+    );
+
 });
+
 
 
 app.listen(3000);
