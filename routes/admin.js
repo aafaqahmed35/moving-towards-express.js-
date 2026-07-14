@@ -7,13 +7,23 @@ const rootDir = require('../util/path');
 
 const router=express.Router();
 
+//array to store added products
+
+const products=[];
+
+
+//get request
 router.get('/add-product', (req, res) => {
     res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
 });
 
-router.post('/product', (req, res) => {
-    console.log(req.body); // { title: '...' }
+
+
+//post request
+router.post('/add-product', (req, res) => {
+    products.push({title: req.body.title}); // { title: '...' }
     res.redirect('/');
 });
 
-module.exports=router;
+exports.routes=router;
+exports.products=products;

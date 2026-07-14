@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Add Product</title>
-
-<link rel="stylesheet" href="/css/main.css">
-
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-
 <body>
 
-<nav>
+    <nav>
+        <h2>Express Shop</h2>
 
-<h2>Express Shop</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/admin/add-product">Add Product</a></li>
+        </ul>
+    </nav>
 
-<ul>
+    <div class="container">
 
-<li><a href="/">Home</a></li>
+        <h1>Add Product</h1>
 
-<li><a href="/add-product">Add Product</a></li>
+        <form action="/admin/add-product" method="POST">
 
-</ul>
+            <label for="title">Product Name</label>
 
-</nav>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Enter Product Name"
+                required
+            >
 
-<div class="container">
+            <button type="submit">
+                Add Product
+            </button>
 
-<h1>Add Product</h1>
+        </form>
 
-<form action="/product" method="POST">
-
-<label>Product Name</label>
-
-<input
-type="text"
-name="title"
-placeholder="Enter Product Name"
-required>
-
-<button type="submit">
-
-Add Product
-
-</button>
-
-</form>
-
-</div>
+    </div>
 
 </body>
 </html>
