@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character Encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        pageTitle is received from:
+
+        res.render('shop', {
+            pageTitle: 'Shop'
+        });
+    -->
+    <title><%= pageTitle %></title>
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Shop-specific Styles -->
+    <link rel="stylesheet" href="/css/product.css">
+
+</head>
+
+<body>
+
+    <!-- ===========================================
+                    NAVIGATION BAR
+    ============================================ -->
+
+    <header class="main-header">
+
+        <nav class="main-header__nav">
+
+            <ul class="main-header__item-list">
+
+                <!-- Shop Link -->
+
+                <li class="main-header__item">
+
+                    <a href="/"
+                       class="<%= path === '/' ? 'active' : '' %>">
+
+                        Shop
+
+                    </a>
+
+                </li>
+
+                <!-- Add Product Link -->
+
+                <li class="main-header__item">
+
+                    <a href="/admin/add-product"
+                       class="<%= path === '/admin/add-product' ? 'active' : '' %>">
+
+                        Add Product
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ===========================================
+                    MAIN CONTENT
+    ============================================ -->
+
+    <main>
+
+        <h1>My Products</h1>
+
+        <!--
+        EJS Control Tag
+
+        <% %>
+
+        Executes JavaScript.
+
+        Nothing inside this tag is printed.
+
+        Here we check whether products exist.
+        -->
+
+        <% if (prods.length > 0) { %>
+
+            <!--
+                Product list.
+
+                Every product will become
+                one list item.
+            -->
+
+            <ul>
+
+                <!--
+                JavaScript Loop
+
+                "product"
+
+                represents one object
+                from the array.
+
+                Example:
+
+                product = {
+
+                    title: "Laptop"
+
+                }
+                -->
+
+                <% for (let product of prods) { %>
+
+                    <li>
+
+                        <!--
+                            <%= %>
+
+                            Prints data into HTML.
+
+                            product.title
+
+                            Example Output:
+
+                            Laptop
+                        -->
+
+                        <%= product.title %>
+
+                    </li>
+
+                <% } %>
+
+            </ul>
+
+        <% } else { %>
+
+            <!--
+                If there are no products,
+                show this message.
+            -->
+
+            <h2>
+
+                No Products Found!
+
+            </h2>
+
+        <% } %>
+
+    </main>
+
+</body>
+
+</html>

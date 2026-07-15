@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character Encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive Viewport -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <!--
+        Browser Tab Title
+
+        pageTitle comes from:
+
+        res.status(404).render('404', {
+            pageTitle: 'Page Not Found'
+        });
+    -->
+    <title><%= pageTitle %></title>
+
+    <!-- Global Styles -->
+    <link rel="stylesheet"
+          href="/css/main.css">
+
+</head>
+
+<body>
+
+    <!-- ===========================================
+                    NAVIGATION BAR
+    ============================================ -->
+
+    <header class="main-header">
+
+        <nav class="main-header__nav">
+
+            <ul class="main-header__item-list">
+
+                <li class="main-header__item">
+
+                    <a href="/">
+
+                        Shop
+
+                    </a>
+
+                </li>
+
+                <li class="main-header__item">
+
+                    <a href="/admin/add-product">
+
+                        Add Product
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ===========================================
+                    ERROR CONTENT
+    ============================================ -->
+
+    <main>
+
+        <!--
+            This page is shown whenever
+            the requested route
+            does not exist.
+
+            Example:
+
+            GET /xyz
+
+            Since Express cannot find
+            a matching route,
+            the request reaches
+            the final middleware:
+
+            app.use((req, res) => {
+
+                res.status(404).render('404');
+
+            });
+
+            Express renders this file.
+        -->
+
+        <h1>
+
+            Page Not Found!
+
+        </h1>
+
+        <p>
+
+            Sorry, the page you requested doesn't exist.
+
+        </p>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        <%= %>
+
+        This is an EJS expression.
+
+        It prints the value into the HTML.
+
+        pageTitle comes from:
+
+        res.render('add-product', {
+            pageTitle: 'Add Product'
+        });
+
+        Final HTML:
+
+        <title>Add Product</title>
+    -->
+    <title><%= pageTitle %></title>
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Styles specific to the Add Product page -->
+    <link rel="stylesheet" href="/css/forms.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================
+         HEADER
+    =========================== -->
+
+    <header class="main-header">
+
+        <nav class="main-header__nav">
+
+            <ul class="main-header__item-list">
+
+                <!-- ==========================
+                     SHOP LINK
+                =========================== -->
+
+                <li class="main-header__item">
+
+                    <!--
+                        This is JavaScript inside EJS.
+
+                        If current path == "/"
+
+                        Output:
+
+                        class="active"
+
+                        Otherwise:
+
+                        class=""
+                    -->
+                    <a href="/"
+                        class="<%= path === '/' ? 'active' : '' %>">
+
+                        Shop
+
+                    </a>
+
+                </li>
+
+                <!-- ==========================
+                     ADD PRODUCT LINK
+                =========================== -->
+
+                <li class="main-header__item">
+
+                    <a href="/admin/add-product"
+                        class="<%= path === '/admin/add-product' ? 'active' : '' %>">
+
+                        Add Product
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ==========================
+         MAIN CONTENT
+    =========================== -->
+
+    <main>
+
+        <!--
+            HTML Form
+
+            action:
+
+                URL where the form data is sent.
+
+            method:
+
+                POST
+
+            This matches:
+
+                router.post('/add-product')
+
+            inside admin.js.
+        -->
+
+        <form
+            class="product-form"
+            action="/admin/add-product"
+            method="POST">
+
+            <!-- Form Group -->
+            <div class="form-control">
+
+                <!--
+                    Clicking the label
+                    automatically focuses
+                    the input because:
+
+                    for="title"
+
+                    matches
+
+                    id="title"
+                -->
+                <label for="title">
+
+                    Product Title
+
+                </label>
+
+                <!--
+                    name="title"
+
+                    IMPORTANT
+
+                    Whatever is written here
+                    becomes the property name
+                    inside req.body.
+
+                    Example:
+
+                    Input:
+
+                        Gaming Mouse
+
+                    Express receives:
+
+                    req.body = {
+
+                        title: "Gaming Mouse"
+
+                    }
+                -->
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title">
+
+            </div>
+
+            <!-- Submit Button -->
+
+            <button type="submit">
+
+                Add Product
+
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>
